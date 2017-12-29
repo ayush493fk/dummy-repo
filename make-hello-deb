@@ -2,6 +2,8 @@
 
 #$PACKAGE is "hello"
 # Create base dir for debian packaging
+set -ex
+LOCAL_DIR=`pwd`
 export DEB_DIR="$LOCAL_DIR/deb"
 export PROJECT_DIR="$LOCAL_DIR/package/$PACKAGE"
 [ ! -d "$DEB_DIR" ] && mkdir "$DEB_DIR"
