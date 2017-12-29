@@ -9,8 +9,9 @@ export PROJECT_DIR="$LOCAL_DIR/package/$PACKAGE"
 [ ! -d "$DEB_DIR" ] && mkdir "$DEB_DIR"
 [ ! -d "$DEB_DIR/DEBIAN" ] && mkdir -p "$DEB_DIR/DEBIAN"
 [ ! -d "$DEB_DIR/usr" ] && mkdir -p "$DEB_DIR/usr"
-
-
+[ ! -d "$DEB_DIR/usr/share" ] && mkdir -p "$DEB_DIR/usr/share"	
+[ ! -d "$DEB_DIR/usr/share/$PACKAGE" ] && mkdir -p "$DEB_DIR/usr/share/$PACKAGE"
+[ ! -d "$DEB_DIR/usr/lib" ] && mkdir -p "$DEB_DIR/usr/lib"
 
 #copy all debian related folders
 cp -p "${PROJECT_DIR}"/DEBIAN/* "${DEB_DIR}/DEBIAN/"
