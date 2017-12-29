@@ -1,0 +1,20 @@
+#!/bin/bash
+
+#$PACKAGE is "hello"
+# Create base dir for debian packaging
+export DEB_DIR="$LOCAL_DIR/deb"
+export PROJECT_DIR="$LOCAL_DIR/package/$PACKAGE"
+[ ! -d "$DEB_DIR" ] && mkdir "$DEB_DIR"
+[ ! -d "$DEB_DIR/DEBIAN" ] && mkdir -p "$DEB_DIR/DEBIAN"
+[ ! -d "$DEB_DIR/usr" ] && mkdir -p "$DEB_DIR/usr"
+
+
+
+#copy all debian related folders
+cp -p "${PROJECT_DIR}"/DEBIAN/* "${DEB_DIR}/DEBIAN/"
+cp -rp "$PROJECT_DIR"/usr/* "${DEB_DIR}/usr/share/$PACKAGE/"
+cp -rp "$LOCAL_DIR"/main_script "${DEB_DIR}/usr/lib/"  #copy all project related files that are executable to deb_dir/usr/lib/, if its whole repo copy it here. 
+
+#Setting variable in scripts
+grep -rl "_PACKAGE_" $DEB_DIR | xargs sed -i -e "s/_PACKAGE_/$PACKAGE/g"
+sed -i -e "s/_VERSION_/$VERSION/g" ${DEB_DIR}/DEBIAN/control

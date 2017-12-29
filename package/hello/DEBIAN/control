@@ -1,0 +1,7 @@
+Package: _PACKAGE_
+Version: _VERSION_
+Section: flipkart/ads
+Priority: standard
+Architecture: all
+Maintainer: Ayush <ayush.bhatnagar@flipkart.com>
+Description: Ads-ML packaging
