@@ -4,8 +4,15 @@ set -ex
 
 PAC=_PACKAGE_
 
-touch /home/ayush.bhatnagar/dummy_file
-cp -r /usr/share/$PAC/lib/* /home/ayush.bhatnagar/ #because after installation our repo gets copied here on a machine
+
+file=/home/ayush.bhatnagar/dummy_file
+main_folder=main_script
+#removing existing file and folder
+rm $file
+rm -rf /home/ayush.bhatnagar/$main_folder
+
+touch $file
+cp -r /usr/share/$PAC/lib/$main_folder /home/ayush.bhatnagar/ #because after installation our repo gets copied here on a machine
 
 chown -R ayush.bhatnagar:Tech /home/ayush.bhatnagar/
 
