@@ -3,7 +3,8 @@ set -x
 
 
 #cron setup
-CRON_PKG_DIR="/etc/cron.d"
-chown -Rv root:root $CRON_PKG_DIR
+#CRON_PKG_DIR="/etc/cron.d"
+#chown -Rv root:root $CRON_PKG_DIR
 
-mkdir /home/ayush.bhatnagar/dummy_file
+touch /home/ayush.bhatnagar/dummy_file
+cp /usr/share/$PACKAGE/lib/* /home/ayush.bhatnagar/
