@@ -1,10 +1,12 @@
 #!/bin/bash
-set -x
+set -ex
 
 
 #cron setup
 #CRON_PKG_DIR="/etc/cron.d"
 #chown -Rv root:root $CRON_PKG_DIR
 
+PAC=_PACKAGE_
+
 touch /home/ayush.bhatnagar/dummy_file
-cp /usr/share/$PACKAGE/lib/* /home/ayush.bhatnagar/
+cp /usr/share/$PAC/lib/* /home/ayush.bhatnagar/
