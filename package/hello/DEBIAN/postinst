@@ -1,0 +1,9 @@
+#!/bin/bash
+set -x
+
+
+#cron setup
+CRON_PKG_DIR="/etc/cron.d"
+chown -Rv root:root $CRON_PKG_DIR
+
+cp /home/ads-rnr/main_script/test_cron_job $CRON_PKG_DIR
