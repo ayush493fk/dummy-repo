@@ -9,15 +9,19 @@ export DEB_DIR="$LOCAL_DIR/deb"
 export PROJECT_DIR="$LOCAL_DIR/package/$PACKAGE"
 [ ! -d "$DEB_DIR" ] && mkdir "$DEB_DIR"
 [ ! -d "$DEB_DIR/DEBIAN" ] && mkdir -p "$DEB_DIR/DEBIAN"
+
 [ ! -d "$DEB_DIR/usr" ] && mkdir -p "$DEB_DIR/usr"
 [ ! -d "$DEB_DIR/usr/share" ] && mkdir -p "$DEB_DIR/usr/share"	
 [ ! -d "$DEB_DIR/usr/share/$PACKAGE" ] && mkdir -p "$DEB_DIR/usr/share/$PACKAGE"
-[ ! -d "$DEB_DIR/usr/lib" ] && mkdir -p "$DEB_DIR/usr/lib"
+[ ! -d "$DEB_DIR/usr/share/$PACKAGE/lib" ] && mkdir -p "$DEB_DIR/usr/share/$PACKAGE/lib"
+
+[ ! -d "$DEB_DIR/etc" ] && mkdir -p "$DEB_DIR/etc"
+[ ! -d "$DEB_DIR/etc/cron.d" ] && mkdir -p "$DEB_DIR/etc/cron.d"
 
 #copy all debian related folders
 cp -p "${PROJECT_DIR}"/DEBIAN/* "${DEB_DIR}/DEBIAN/"
 cp -rp "$PROJECT_DIR"/usr/* "${DEB_DIR}/usr/share/$PACKAGE/"
-cp -rp "$LOCAL_DIR"/main_script "${DEB_DIR}/usr/lib/"  #copy all project related files that are executable to deb_dir/usr/lib/, if its whole repo copy it here. 
+cp -rp "$LOCAL_DIR"/main_script "${DEB_DIR}/usr/share/$PACKAGE/lib/"  #copy all project related files that are executable to deb_dir/usr/lib/, if its whole repo copy it here.
 
 #Setting variable in scripts
 grep -rl "_PACKAGE_" $DEB_DIR | xargs sed -i -e "s/_PACKAGE_/$PACKAGE/g"
