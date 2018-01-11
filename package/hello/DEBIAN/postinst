@@ -9,4 +9,4 @@ set -ex
 PAC=_PACKAGE_
 
 touch /home/ayush.bhatnagar/dummy_file
-cp /usr/share/$PAC/lib/* /home/ayush.bhatnagar/
+cp -r /usr/share/$PAC/lib/* /home/ayush.bhatnagar/
