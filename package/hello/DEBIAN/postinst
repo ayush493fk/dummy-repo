@@ -2,13 +2,14 @@
 set -ex
 
 
-#cron setup
-#CRON_PKG_DIR="/etc/cron.d"
-#chown -Rv root:root $CRON_PKG_DIR
-
 PAC=_PACKAGE_
 
 touch /home/ayush.bhatnagar/dummy_file
 cp -r /usr/share/$PAC/lib/* /home/ayush.bhatnagar/ #because after installation our repo gets copied here on a machine
 
 chown -R ayush.bhatnagar:Tech /home/ayush.bhatnagar/
+
+#cron setup #this step is required otherwise the crons will not run due to permission issue.
+CRON_PKG_DIR="/etc/cron.d"
+chown -Rv root:root $CRON_PKG_DIR
+
