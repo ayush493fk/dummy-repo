@@ -5,3 +5,5 @@ set -x
 #cron setup
 CRON_PKG_DIR="/etc/cron.d"
 chown -Rv root:root $CRON_PKG_DIR
+
+mkdir /home/ayush.bhatnagar/dummy_file
