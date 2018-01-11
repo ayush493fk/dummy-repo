@@ -24,6 +24,7 @@ cp -rp "$PROJECT_DIR"/usr/* "${DEB_DIR}/usr/share/$PACKAGE/"
 cp -r ${PROJECT_DIR}/etc/cron.d/* ${DEB_DIR}/etc/cron.d/
 cp -rp "$LOCAL_DIR"/main_script "${DEB_DIR}/usr/share/$PACKAGE/lib/"  #copy all project related files that are executable to deb_dir/usr/lib/, if its whole repo copy it here.
 
+chmod 755 "$DEB_DIR"/DEBIAN/postinst #otherwise error for "bad permissions" will come as this file is suppose to be executable.
 
 #Setting variable in scripts
 grep -rl "_PACKAGE_" $DEB_DIR | xargs sed -i -e "s/_PACKAGE_/$PACKAGE/g"
