@@ -1,1 +1,1 @@
-*/1 * * * * ayush.bhatnagar python /home/ayush.bhatnagar/main_script/hello.py >> /home/ayush.bhatnagar/dummy_file
+*/1 * * * * ayush.bhatnagar bash /home/ayush.bhatnagar/main_script/run.sh
