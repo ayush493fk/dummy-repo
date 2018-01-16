@@ -28,4 +28,6 @@ chmod 755 "$DEB_DIR"/DEBIAN/postinst #otherwise error for "bad permissions" will
 
 #Setting variable in scripts
 grep -rl "_PACKAGE_" $DEB_DIR | xargs sed -i -e "s/_PACKAGE_/$PACKAGE/g"
+grep -rl "_ENV_" $DEB_DIR | xargs sed -i -e "s/_ENV_/$1/g" #$1 would be neo-ctr or neo-cvr or pla-ctr or pla-cvr.
+
 sed -i -e "s/_VERSION_/$VERSION/g" ${DEB_DIR}/DEBIAN/control

@@ -3,15 +3,16 @@ set -ex
 
 
 PAC=_PACKAGE_
+ENV=_ENV_
 
 
-file=/home/ayush.bhatnagar/dummy_file
+file=/home/ayush.bhatnagar
 main_folder=main_script
+
 #removing existing file and folder
 rm $file
 rm -rf /home/ayush.bhatnagar/$main_folder
 
-touch $file
 cp -r /usr/share/$PAC/lib/$main_folder /home/ayush.bhatnagar/ #because after installation our repo gets copied here on a machine
 
 chown -R ayush.bhatnagar:Tech /home/ayush.bhatnagar/
@@ -20,3 +21,10 @@ chown -R ayush.bhatnagar:Tech /home/ayush.bhatnagar/
 CRON_PKG_DIR="/etc/cron.d"
 chown -Rv root:root $CRON_PKG_DIR
 
+if [$ENV == "neo-ctr"]; then
+    touch $file/neo_CTR
+elif [$ENV == "neo-cvr"]; then
+    touch $file/neo_CVR
+else
+    touch $file/something
+fi
