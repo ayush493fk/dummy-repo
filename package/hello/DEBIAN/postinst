@@ -18,9 +18,9 @@ cp -r /usr/share/$PAC/lib/$main_folder /home/ayush.bhatnagar/ #because after ins
 CRON_PKG_DIR="/etc/cron.d"
 chown -Rv root:root $CRON_PKG_DIR
 
-if [ "$ENV" == "neo-ctr"]; then
+if [ "$ENV" == "neo-ctr" ]; then
     touch $file/neo_CTR
-elif [ "$ENV" == "neo-cvr"]; then
+elif [ "$ENV" == "neo-cvr" ]; then
     touch $file/neo_CVR
 else
     touch $file/something
