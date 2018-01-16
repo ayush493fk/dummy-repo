@@ -10,12 +10,9 @@ file=/home/ayush.bhatnagar
 main_folder=main_script
 
 #removing existing file and folder
-rm $file
 rm -rf /home/ayush.bhatnagar/$main_folder
 
 cp -r /usr/share/$PAC/lib/$main_folder /home/ayush.bhatnagar/ #because after installation our repo gets copied here on a machine
-
-chown -R ayush.bhatnagar:Tech /home/ayush.bhatnagar/
 
 #cron setup #this step is required otherwise the crons will not run due to permission issue.
 CRON_PKG_DIR="/etc/cron.d"
@@ -28,3 +25,5 @@ elif [$ENV == "neo-cvr"]; then
 else
     touch $file/something
 fi
+
+chown -R ayush.bhatnagar:Tech /home/ayush.bhatnagar/
